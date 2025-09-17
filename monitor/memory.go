@@ -65,9 +65,12 @@ func (r *RedisServer) Memory() (*MemoryStats, error) {
 }
 
 func (m *MemoryStats) Table() [][]string {
+	peak := float64(m.PeakAllocated) / (1024 * 1024)
+	dataset := float64(m.DatasetBytes) / (1024 * 1024)
+
 	return [][]string{
-		{"peak allocated", fmt.Sprintf("%d", m.PeakAllocated)},
-		{"dataset", fmt.Sprintf("%d bytes", m.DatasetBytes)},
+		{"peak allocated", fmt.Sprintf("%.2f MB", peak)},
+		{"dataset", fmt.Sprintf("%.2f MB", dataset)},
 		{"fragmentation", fmt.Sprintf("%.2f", m.Fragmentation)},
 		{"repl.backlog", fmt.Sprintf("%d", m.ReplicationBacklog)},
 	}
