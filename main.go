@@ -40,7 +40,7 @@ Options:
   -h : Help
   -V : Version
 
-You can set REDISTOP_PASSWORD
+You can set REDISCLI_AUTH
 `, version.Version())
 		return
 	}
@@ -58,7 +58,7 @@ You can set REDISTOP_PASSWORD
 	if len(args) > 2 {
 		password = args[2]
 	}
-	p := os.Getenv("REDISTOP_PASSWORD")
+	p := os.Getenv("REDISCLI_AUTH")
 	if p != "" {
 		password = p
 	}
