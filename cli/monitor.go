@@ -68,7 +68,7 @@ func (a *App) MonitorLoop() {
 			values.Next()
 			a.ui.app.QueueUpdateDraw(func() {
 				a.ui.graph.SetSeries(vv)
-				a.ui.graph.SetTitle(fmt.Sprintf("Commands [current: %.1f max: %.1f]",
+				a.ui.graph.SetTitle(fmt.Sprintf("Commands [current: %.0f max: %.0f]",
 					vv[len(vv)-1],
 					m,
 				))
@@ -80,7 +80,7 @@ func (a *App) MonitorLoop() {
 						a.ui.cmds.SetCell(size-i-1, 0,
 							tview.NewTableCell(fmt.Sprintf("%-*s", w/2, kv.K)).SetAttributes(tcell.AttrBold))
 						a.ui.cmds.SetCell(size-i-1, 1,
-							tview.NewTableCell(fmt.Sprintf("%.1f", float64(kv.V)/scale)).
+							tview.NewTableCell(fmt.Sprintf("%.0f", float64(kv.V)/scale)).
 								SetAlign(tview.AlignRight))
 					}
 				}
@@ -92,7 +92,7 @@ func (a *App) MonitorLoop() {
 					for i, kv := range ip {
 						a.ui.ips.SetCell(size-i-1, 0,
 							tview.NewTableCell(fmt.Sprintf("%-*s", w/2, kv.K)).SetAttributes(tcell.AttrItalic))
-						a.ui.ips.SetCellSimple(size-i-1, 1, fmt.Sprintf("%.1f", float64(kv.V)/scale))
+						a.ui.ips.SetCellSimple(size-i-1, 1, fmt.Sprintf("%.0f", float64(kv.V)/scale))
 					}
 				}
 			})

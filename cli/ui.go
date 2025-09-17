@@ -96,11 +96,11 @@ func NewAppUI() *AppUI {
 		app:            tview.NewApplication(),
 		monitorIsReady: false,
 	}
-	appUI.fundation()
+	appUI.foundation()
 	return appUI
 }
 
-func (a *AppUI) fundation() {
+func (a *AppUI) foundation() {
 	a.header = tview.NewTable().SetFixed(1, 4)
 	a.header.SetBorder(true)
 	a.header.SetTitle("Redistop")
