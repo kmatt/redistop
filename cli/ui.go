@@ -152,7 +152,7 @@ func (a *AppUI) foundation() {
 	a.pile = tview.NewFlex()
 	a.pile.SetDirection(tview.FlexRow)
 
-	a.grid = tview.NewGrid().SetRows(3, 7, 0, 1).SetColumns(0, 0, 40).
+	a.grid = tview.NewGrid().SetRows(3, 7, 0, 1).SetColumns(0, 0, 60).
 		AddItem(a.header, 0, 0, 1, 3, 0, 0, false).
 		AddItem(a.graph, 1, 0, 1, 3, 0, 0, false).
 		AddItem(a.splash, 2, 0, 1, 2, 0, 0, false).
